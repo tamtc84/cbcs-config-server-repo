@@ -10,3 +10,11 @@ eureka:
 user:
   role: User123
   password: pass123
+
+spring:
+  datasource:
+    username: postgres
+    password: 123456
+    url: jdbc:postgresql://localhost:5432/demoservice?useSSL=false&characterEncoding=UTF-8
+#    initialization-mode: always
+    platform: postgres
