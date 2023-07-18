@@ -1,12 +1,29 @@
+# eureka:
+#   client:
+    # register-with-eureka: true
+    # fetch-registry: true
+    # service-url:
+    #   defaultZone: https://localhost:9002/eureka/
+    # instance:
+    #   hostname: localhost
+
 eureka:
   client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: https://localhost:9002/eureka/
-    instance:
-      hostname: localhost
-
+    secure-port-enabled: true
+    secure-port: 9002
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: https://localhost:9002/eureka
+    tls:
+      enabled: true
+      keyStore: classpath:cbcs.jks
+      trustStore: classpath:cbcs.jks
+      keyStoreType: pkcs12
+      keyStorePassword: '{cipher}hello_cbcs'
+      trustStorePassword: '{cipher}hello_cbcs'
+      keyPassword: '{cipher}hello_cbcs'
+      
 user:
   role: User123
   password: pass123
