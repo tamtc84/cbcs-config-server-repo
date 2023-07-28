@@ -1,0 +1,59 @@
+###===========
+spring:
+  autoconfigure:
+    exclude:org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  application:
+    name: ${server.name}
+
+  config:
+    ## Lấy thông tin db từ config server
+    import: optional:configserver:https://localhost:9003
+    #    username: what
+    #    password: strongpassword
+    ## END Khai báo lấy thông tin từ config server    
+  
+  ## Đoạn này dùng để connect db local ##
+  ## Đoạn này chỉ  hoạt động nếu cloud.config.enable=false ##
+  datasource:
+    username: postgres
+    password: 123456
+    url: jdbc:postgresql://localhost:5432/demoservice?useSSL=false&characterEncoding=UTF-8
+    platform: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+#        #dialect: org.hibernate.dialect.PostgreSQLDialect
+#        #temp:
+#          #use_jdbc_metadata_defaults:false
+#  ## END Đoạn này dùng để connect db local ##    
+###================
+eureka:
+    client:
+        enabled: true
+        register-with-eureka: true
+        fetch-registry: true
+        service-url: 
+            defaultZone: https://localhost:9002/eureka
+            
+        ### BEGIN Xin phép kết nối HTTPS vào eureka server ###
+        tls:
+          enabled: true
+          key-store: classpath:cbcs_localhost.jks
+          key-store-type: PKCS12
+          key-store-password: hello_cbcs
+          key-password: hello_cbcs
+          
+          trust-store: classpath:cbcs_localhost_truststore.jks
+          trust-store-type: PKCS12
+          trust-store-password: hello_cbcs
+        ### END Xin phép kết nối vào eureka server ###
+    instance:
+        non-secure-port-enabled: false
+        secure-port-enabled: true
+###================
