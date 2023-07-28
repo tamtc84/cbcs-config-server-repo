@@ -14,15 +14,23 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: https://localhost:9002/eureka
+      defaultZone: https://localhost:9002/
     tls:
       enabled: true
-      keyStore: classpath:cbcs.jks
-      trustStore: classpath:cbcs.jks
-      keyStoreType: pkcs12
-      keyStorePassword: '{cipher}hello_cbcs'
-      trustStorePassword: '{cipher}hello_cbcs'
-      keyPassword: '{cipher}hello_cbcs'
+      key-store: classpath:cbcs_localhost.jks
+      key-store-type: PKCS12
+      key-store-password: hello_cbcs
+      key-password: hello_cbcs
+          
+      trust-store: classpath:cbcs_localhost_truststore.jks
+      trust-store-type: PKCS12
+      trust-store-password: hello_cbcs
+      #keyStore: classpath:cbcs_localhost.jks
+      #trustStore: classpath:cbcs_localhost.jks
+      #keyStoreType: pkcs12
+      #keyStorePassword: '{cipher}hello_cbcs'
+      #trustStorePassword: '{cipher}hello_cbcs'
+      #keyPassword: '{cipher}hello_cbcs'
       
 user:
   role: User123
