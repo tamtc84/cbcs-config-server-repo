@@ -5,9 +5,9 @@ spring:
   application:
     name: ${server.name}
 
-  config:
+  #config:
     ## Lấy thông tin db từ config server
-    import: optional:configserver:https://localhost:9003
+    #import: optional:configserver:https://localhost:9003
     #    username: what
     #    password: strongpassword
     ## END Khai báo lấy thông tin từ config server    
