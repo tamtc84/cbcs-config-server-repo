@@ -46,12 +46,12 @@ eureka:
           enabled: true
           key-store: classpath:cbcs_localhost.jks
           key-store-type: PKCS12
-          key-store-password: hello_cbcs
-          key-password: hello_cbcs
+          key-store-password: '{cipher}hello_cbcs'
+          key-password: '{cipher}hello_cbcs'
           
           trust-store: classpath:cbcs_localhost_truststore.jks
           trust-store-type: PKCS12
-          trust-store-password: hello_cbcs
+          trust-store-password: '{cipher}hello_cbcs'
         ### END Xin phép kết nối vào eureka server ###
     instance:
         non-secure-port-enabled: false
