@@ -44,12 +44,12 @@ eureka:
         ### BEGIN Xin phép kết nối HTTPS vào eureka server ###
         tls:
           enabled: true
-          key-store: classpath:cbcs_localhost.jks
+          key-store: classpath:cbcs_discovery.jks
           key-store-type: PKCS12
           key-store-password: '{cipher}hello_cbcs'
           key-password: '{cipher}hello_cbcs'
           
-          trust-store: classpath:cbcs_localhost_truststore.jks
+          trust-store: classpath:cbcs_discovery_truststore.jks
           trust-store-type: PKCS12
           trust-store-password: '{cipher}hello_cbcs'
         ### END Xin phép kết nối vào eureka server ###
